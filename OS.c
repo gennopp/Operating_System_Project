@@ -50,6 +50,15 @@ void sort_priority_based(struct Process a[], int n){
 	}
 }
 
+void get_waiting_time(struct Process a[], int n, int waiting_time[]){
+	waiting_time[0] = 0;
+	int i;
+	for(i=1;i<n;i++){
+		waiting_time[i] = waiting_time[i-1] + a[i-1].burst_time;
+	}
+}
+
+
 
 void get_average_time(struct Process a[], int n){
 	int waiting_time[n], turn_around_time[n], total_waiting_time = 0, total_turn_around_time = 0;
