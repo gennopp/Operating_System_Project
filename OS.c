@@ -50,3 +50,26 @@ void sort_priority_based(struct Process a[], int n){
 	}
 }
 
+
+void get_average_time(struct Process a[], int n){
+	int waiting_time[n], turn_around_time[n], total_waiting_time = 0, total_turn_around_time = 0;
+	int i;
+
+	get_waiting_time(a, n, waiting_time);
+
+	get_turn_around_time(a, n, waiting_time, turn_around_time);
+
+	for(i=0;i<n;i++){
+		total_waiting_time += waiting_time[i];
+		total_turn_around_time += turn_around_time[i];
+	}
+
+	printf("\n\nProcessID	Burst Time   Waiting Time   Turn Around Time");
+	printf("\n**************************************************************");
+	for(i=0;i<n;i++){
+		printf("\n%d		 %d		 %d		 %d", a[i].p_id, a[i].burst_time, waiting_time[i], turn_around_time[i]);
+	}
+
+	printf("\n\nAverage Waiting Time:	%d", total_waiting_time/n);
+	printf("\nAverage Turn Around Time: %d\n", total_turn_around_time/n);
+}
