@@ -59,6 +59,13 @@ void get_waiting_time(struct Process a[], int n, int waiting_time[]){
 }
 
 
+void get_turn_around_time(struct Process a[], int n, int waiting_time[], int turn_around_time[]){
+	int i;
+	for(i=0;i<n;i++){
+		turn_around_time[i] = a[i].burst_time + waiting_time[i];
+	}
+}
+
 
 void get_average_time(struct Process a[], int n){
 	int waiting_time[n], turn_around_time[n], total_waiting_time = 0, total_turn_around_time = 0;
