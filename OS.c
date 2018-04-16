@@ -6,6 +6,8 @@ struct Process
 };
 
 void sort_priority_based(struct Process [], int);
+void get_average_time(struct Process [], int);
+
 
 int main(){
 	int n, i=0, j;
